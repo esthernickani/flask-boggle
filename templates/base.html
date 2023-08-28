@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Document{% endblock %}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="start_game">Start guessing</button>
+    <p class="game_over"></p>
+    <div class="board">
+        {% block content %}
+            {% for row in boggle_board %}
+                <div class="row">
+                    {% for item in row %}
+                        <div class="item">{{item}}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% endblock %}
+    </div>
+    <div class="score_result">
+        <div class="score">
+            <p class="current_score">Current score: <span class="current_num">0</span></p>
+        </div>
+        <p class="result"></p>
+        <form action="" class="submit_guess" id="submit_guess_form">
+            <label for="guess_word">Submit a guess:</label>
+            <input type="text" name="guess_word" id="guess_word" placeholder="type in your guess">
+            <input type="submit" value="Submit word">
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>

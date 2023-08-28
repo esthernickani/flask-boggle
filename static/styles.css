@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(5, 2rem);
+    grid-template-rows: repeat(5, 10px);
+    gap: 10px;
+}
+
+.score_result {
+    margin-top: 2rem;
+}
+
+.start_game {
+    margin-bottom: 2rem;
+}
+
+body {
+    margin: 2rem;
+}
