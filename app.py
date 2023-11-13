@@ -1,16 +1,10 @@
 from flask import Flask, redirect, request, render_template, session, flash, jsonify
 from boggle import Boggle
-from flask_debugtoolbar import DebugToolbarExtension 
 import pdb
 
 app = Flask(__name__, template_folder = "templates")
 app.config['SECRET_KEY'] = "oh-so-secret"
 
-if __name__ == "__main__":
-    app.debug = True
-    app.run()
-
-toolbar = DebugToolbarExtension(app)
 boggle_game = Boggle()
 
 @app.route('/')
@@ -44,3 +38,6 @@ def submit_results():
     
     pdb.set_trace()
     return jsonify(current_score)
+
+if __name__ == "__main__":
+    app.run()
